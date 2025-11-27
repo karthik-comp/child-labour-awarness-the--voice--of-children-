@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vempalli Child Hope – Child Labour Awareness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Child labour awareness and reporting website for Vempalli Mandal children." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-card: #0f172a;
+      --bg-soft: #020617;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --accent-2: #22c55e;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --danger: #ef4444;
+      --shadow-soft: 0 22px 45px rgba(15,23,42,0.85);
+      --radius-xl: 22px;
+      --radius-2xl: 28px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #1f2937, #020617 45%, #020617 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 3rem;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2,6,23,0.98), rgba(2,6,23,0.88));
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.85);
+      margin: 0 auto 1.75rem;
+      padding: 0.5rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 10%, #fbbf24, #f97316 40%, #b91c1c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 0 0 3px rgba(15,23,42,0.7);
+    }
+
+    .brand-text-main {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-text-sub {
+      font-size: 0.7rem;
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 0.4rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f97316, #facc15);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lang-toggle {
+      display: flex;
+      padding: 0.2rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .lang-btn {
+      font-size: 0.7rem;
+      padding: 0.26rem 0.85rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      font-size: 0.75rem;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid rgba(248,250,252,0.2);
+      background: radial-gradient(circle at 10% 0, rgba(250,204,21,0.15), rgba(15,23,42,0.95));
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(148,163,184,0.4);
+      background: radial-gradient(circle at 10% 0, rgba(248,250,252,0.12), rgba(15,23,42,1));
+    }
+
+    .nav-cta span:last-child {
+      font-size: 0.9rem;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-left {
+      position: relative;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.65rem 0.18rem 0.18rem;
+      border-radius: 999px;
+      background: rgba(30,64,175,0.75);
+      box-shadow: 0 10px 30px rgba(30,64,175,0.7);
+      font-size: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #facc15, #f97316);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #111827;
+    }
+
+    .pill-label {
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #f97316, #facc15, #22c55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 0.7rem 1.6rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #f97316, #facc15);
+      box-shadow: 0 12px 30px rgba(248, 181, 55, 0.6);
+      color: #111827;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 16px 35px rgba(248, 181, 55, 0.75);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.65rem 1.3rem;
+      border: 1px solid rgba(148,163,184,0.5);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(15,23,42,0.95);
+      color: var(--text-muted);
+      transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+      border-color: rgba(248,250,252,0.6);
+      color: var(--text-main);
+      background: rgba(15,23,42,1);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.45);
+    }
+
+    /* HERO IMAGE SIDE */
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(148,163,184,0.35);
+      overflow: hidden;
+      background: radial-gradient(circle at top, #1e293b, #020617);
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+    }
+
+    .hero-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      max-height: 320px;
+    }
+
+    .hero-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(1.08);
+      transition: transform 1.2s ease-out;
+    }
+
+    .hero-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .hero-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2,6,23,0.9), rgba(15,23,42,0.2));
+    }
+
+    .hero-card-bottom {
+      padding: 0.9rem 1.1rem 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .hero-card-bottom-left span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-bottom-left strong {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-tag {
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #bbf7d0;
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(248,250,252,0.25);
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .floating-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--danger);
+      box-shadow: 0 0 0 4px rgba(239,68,68,0.45);
+    }
+
+    .floating-note {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      font-size: 0.7rem;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.9);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stats {
+      position: absolute;
+      inset: auto auto -55px 12px;
+      display: flex;
+      gap: 0.6rem;
+      align-items: stretch;
+      z-index: 10;
+    }
+
+    .hero-stat-card {
+      background: rgba(15,23,42,0.98);
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.45);
+      padding: 0.5rem 0.8rem;
+      min-width: 115px;
+      box-shadow: 0 14px 30px rgba(15,23,42,0.9);
+    }
+
+    .hero-stat-card strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .hero-stat-card span {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* SECTION HEADINGS */
+    .section {
+      margin-top: 4.4rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+    }
+
+    .section-badge {
+      font-size: 0.7rem;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.92);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--text-muted);
+    }
+
+    .section-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* INFO GRID */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .info-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.08), rgba(15,23,42,0.95));
+      border: 1px solid rgba(148,163,184,0.45);
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(249,115,22,0.18), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      transform: translateY(10px);
+    }
+
+    .info-card:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .info-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.26rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .info-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .info-body {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .info-list {
+      margin-top: 0.35rem;
+      padding-left: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .info-list li + li {
+      margin-top: 0.12rem;
+    }
+
+    .info-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: auto;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-chip {
+      font-size: 0.67rem;
+      padding: 0.24rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px dashed rgba(148,163,184,0.7);
+      color: var(--text-muted);
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .gallery-main {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: #020617;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 1.2s ease-out;
+    }
+
+    .gallery-main:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-main-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.98), rgba(15,23,42,0.25));
+    }
+
+    .gallery-main-text {
+      position: absolute;
+      left: 1.1rem;
+      bottom: 1.1rem;
+      max-width: 70%;
+      font-size: 0.85rem;
+    }
+
+    .gallery-main-text strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-badges {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .gallery-badge {
+      font-size: 0.66rem;
+      padding: 0.23rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.6);
+    }
+
+    .gallery-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 0.9rem;
+    }
+
+    .gallery-tile {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: #020617;
+    }
+
+    .gallery-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 1s ease-out;
+    }
+
+    .gallery-tile:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-tile-tag {
+      position: absolute;
+      inset: auto auto 0.7rem 0.7rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.7);
+    }
+
+    /* STATS STRIP */
+    .stats-strip {
+      margin-top: 3rem;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(148,163,184,0.5);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.15), rgba(15,23,42,0.95));
+      padding: 0.9rem 1rem;
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .stats-left-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .stats-left-body {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .stats-right {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .stat-item {
+      flex: 1 1 0;
+      border-radius: 18px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+    }
+
+    .stat-number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .stat-pill {
+      margin-top: 0.18rem;
+      font-size: 0.68rem;
+      padding: 0.18rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.4);
+      display: inline-flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    .stat-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* REPORT SECTION */
+    .report-section {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.05fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .report-info-card {
+      border-radius: var(--radius-2xl);
+      padding: 1.1rem;
+      border: 1px solid rgba(248,250,252,0.15);
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.25), rgba(15,23,42,1));
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-info-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(250,204,21,0.25), transparent 55%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .report-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .report-header-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(248,250,252,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .report-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .report-body {
+      font-size: 0.82rem;
+      color: rgba(249,250,251,0.9);
+      margin-bottom: 0.6rem;
+    }
+
+    .report-points {
+      font-size: 0.8rem;
+      color: rgba(249,250,251,0.85);
+      padding-left: 1.1rem;
+    }
+
+    .report-points li + li {
+      margin-top: 0.15rem;
+    }
+
+    .report-note {
+      margin-top: 0.65rem;
+      font-size: 0.75rem;
+      color: rgba(249,250,251,0.9);
+      padding: 0.45rem 0.7rem;
+      border-radius: 0.9rem;
+      background: rgba(15,23,42,0.8);
+      border: 1px dashed rgba(249,250,251,0.4);
+    }
+
+    .meo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.26rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.65);
+      margin-top: 0.5rem;
+    }
+
+    .meo-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    .form-card {
+      border-radius: var(--radius-2xl);
+      padding: 1rem;
+      background: rgba(15,23,42,0.98);
+      border: 1px solid rgba(148,163,184,0.65);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.19rem;
+      font-size: 0.8rem;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+
+    input, textarea, select {
+      border-radius: 0.75rem;
+      border: 1px solid rgba(148,163,184,0.55);
+      background: rgba(15,23,42,0.98);
+      padding: 0.5rem 0.7rem;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.8rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #f97316;
+      box-shadow: 0 0 0 1px rgba(249,115,22,0.7);
+      background: #020617;
+      transform: translateY(-1px);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .form-required {
+      font-size: 0.72rem;
+      color: #facc15;
+    }
+
+    .form-btn-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-danger {
+      border-radius: 999px;
+      padding: 0.65rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      box-shadow: 0 14px 30px rgba(248,113,113,0.7);
+      color: #f9fafb;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-danger:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      box-shadow: 0 18px 38px rgba(248,113,113,0.9);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      border: 1px dashed rgba(148,163,184,0.8);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-outline:hover {
+      background: rgba(15,23,42,0.96);
+      border-color: rgba(248,250,252,0.9);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 3.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .footer span.highlight {
+      color: #facc15;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* LANGUAGE VISIBILITY */
+    [data-lang="en"] .lang-en { display: inline; }
+    [data-lang="en"] .lang-te { display: none; }
+
+    [data-lang="te"] .lang-en { display: none; }
+    [data-lang="te"] .lang-te { display: inline; }
+
+    /* For block elements: override with display: block when needed */
+    .block-text { display: block; }
+
+    [data-lang="en"] .block-text.lang-en { display: block; }
+    [data-lang="en"] .block-text.lang-te { display: none; }
+
+    [data-lang="te"] .block-text.lang-en { display: none; }
+    [data-lang="te"] .block-text.lang-te { display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .hero-stats {
+        position: static;
+        margin-top: 0.7rem;
+      }
+
+      .report-section {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .gallery-main-text {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .navbar {
+        flex-wrap: wrap;
+        border-radius: 20px;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        margin-bottom: 2.4rem;
+      }
+
+      .info-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .stats-strip {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .stats-right {
+        flex-direction: column;
+      }
+
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wrapper {
+        padding-inline: 0.9rem;
+      }
+
+      .hero-card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="logo-circle">VC</div>
+        <div>
+          <div class="brand-text-main">
+            <span class="lang-en">Vempalli Child Hope</span>
+            <span class="lang-te">వెంపల్లి చైల్డ్ హోప్</span>
+          </div>
+          <div class="brand-text-sub">
+            <span class="lang-en">End child labour • Start education</span>
+            <span class="lang-te">బాల కార్మికం నిలిపి • విద్య మొదలు</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#about">
+          <span class="lang-en">About</span>
+          <span class="lang-te">గురించి</span>
+        </a>
+        <a href="#gallery">
+          <span class="lang-en">Gallery</span>
+          <span class="lang-te">చిత్రాలు</span>
+        </a>
+        <a href="#report">
+          <span class="lang-en">Report</span>
+          <span class="lang-te">ఫిర్యాదు</span>
+        </a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang-btn="en">EN</button>
+          <button class="lang-btn" data-lang-btn="te">తెలుగు</button>
+        </div>
+        <button class="nav-cta" onclick="scrollToReport()">
+          <span>⚠️</span>
+          <span class="lang-en">Report Child Labour</span>
+          <span class="lang-te">బాల కార్మికం నివేదించండి</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <div class="pill">
+          <div class="pill-badge">!</div>
+          <span class="pill-label lang-en">For Vempalli Mandal Children</span>
+          <span class="pill-label lang-te">వెంపల్లి మండల చిన్నారుల కోసం</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="lang-en">
+            <span class="highlight">Let them learn</span>, not labour.
+            Every child in Vempalli deserves a classroom, not a workplace.
+          </span>
+          <span class="lang-te">
+            <span class="highlight">పనికాదు – పాఠశాలే</span> వారి స్థానం.
+            వెంపల్లి మండలంలోని ప్రతి చిన్నారికి చదువు హక్కు.
+          </span>
+        </h1>
+
+        <p class="hero-subtitle">
+          <span class="lang-en">
+            Know how to identify child labour, understand the law, and report safely to the
+            Mandal Education Officer. Together, we can protect children and their future.
+          </span>
+          <span class="lang-te">
+            బాల కార్మికాన్ని ఎలా గుర్తించాలో, చట్టం ఏమంటుందో తెలుసుకోండి.
+            సురక్షితంగా మండల విద్యాధికారి (MEO)కి ఫిర్యాదు చేయండి.
+            మనం కలిసే చిన్నారుల భవిష్యత్తు కాపాడగలం.
+          </span>
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="scrollToReport()">
+            <span>🚨</span>
+            <span class="lang-en">Report a Child in Danger</span>
+            <span class="lang-te">బాధలో ఉన్న చిన్నారిని ఫిర్యాదు చేయండి</span>
+          </button>
+          <button class="btn-ghost" onclick="scrollToAbout()">
+            <span>📚</span>
+            <span class="lang-en">Learn about Child Labour</span>
+            <span class="lang-te">బాల కార్మికం గురించి తెలుసుకోండి</span>
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="dot"></div>
+            <span class="lang-en">Anonymous & safe reporting to MEO</span>
+            <span class="lang-te">సురక్షితమైన, గోప్యమైన ఫిర్యాదు MEOకి</span>
+          </div>
+          <div class="hero-meta-item">
+            <span>📞 1098</span>
+            <span class="lang-en">Childline emergency help</span>
+            <span class="lang-te">చైల్డ్‌లైన్ తక్షణ సేవ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <article class="hero-card">
+          <div class="hero-img-wrapper">
+            <!-- Hero Image -->
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80" alt="Children in classroom" />
+            <div class="hero-gradient-overlay"></div>
+            <div class="floating-badge">
+              <span></span>
+              <div>
+                <span class="lang-en">Stop Child Labour</span>
+                <span class="lang-te">బాల కార్మికానికి ముగింపు</span>
+              </div>
+            </div>
+            <div class="floating-note">
+              <span class="lang-en">Books, not bricks.</span>
+              <span class="lang-te">బస్తా కావాలి, ఇటుక కాదు.</span>
+            </div>
+          </div>
+          <div class="hero-card-bottom">
+            <div class="hero-card-bottom-left">
+              <span class="lang-en">For Vempalli Mandal</span>
+              <span class="lang-te">వెంపల్లి మండలానికి</span>
+              <strong>
+                <span class="lang-en">Child Labour Awareness & Reporting Portal</span>
+                <span class="lang-te">బాల కార్మిక అవగాహన & ఫిర్యాదు పోర్టల్</span>
+              </strong>
+            </div>
+            <div class="hero-tag">
+              <span class="lang-en">Mandal Education Office • MEO</span>
+              <span class="lang-te">మండల విద్యా కార్యాలయం • MEO</span>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat-card">
+              <strong data-counter data-target="100">0</strong>
+              <span class="lang-en">+ Students reached through<br>awareness messages</span>
+              <span class="lang-te">+ అవగాహనతో చేరిన<br>వెంపల్లి విద్యార్థులు</span>
+            </div>
+            <div class="hero-stat-card">
+              <strong data-counter data-target="24">0</strong>
+              <span class="lang-en">hr response aim from<br>MEO for urgent cases</span>
+              <span class="lang-te">అత్యవసర కేసులకు<br>24 గంటల్లో స్పందన లక్ష్యం</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT / INFO SECTION -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            <span class="lang-en">What is Child Labour?</span>
+            <span class="lang-te">బాల కార్మికం అంటే ఏమిటి?</span>
+          </h2>
+          <p class="section-subtitle">
+            <span class="lang-en">
+              Child labour is when children are made to work in ways that steal their childhood,
+              stop their education, or harm their health and dignity.
+            </span>
+            <span class="lang-te">
+              చదువు, ఆట, ఆరోగ్యం, గౌరవం – ఇవన్నీ దూరం చేస్తూ చిన్నారులను పని చేయించడం బాల కార్మికం.
+              ఇది నేరం, ఇది అన్యాయం.
+            </span>
+          </p>
+        </div>
+        <div class="section-badge">
+          <span class="section-badge-dot"></span>
+          <span class="lang-en">Let children learn – not labour.</span>
+          <span class="lang-te">శ్రమ కాదు… విద్యే వారి హక్కు.</span>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <!-- Card 1 -->
+        <article class="info-card">
+          <div class="info-pill">
+            <span>⚠️</span>
+            <span class="lang-en">Common signs</span>
+            <span class="lang-te">గుర్తించే సూచనలు</span>
+          </div>
+          <h3 class="info-title">
+            <span class="lang-en">How to identify child labour in Vempalli</span>
+            <span class="lang-te">వెంపల్లిలో బాల కార్మికాన్ని ఎలా గుర్తించాలి?</span>
+          </h3>
+          <p class="info-body">
+            <span class="lang-en">
+              Look for school-age children working in shops, hotels, farms, mines, construction,
+              or doing heavy work at odd hours.
+            </span>
+            <span class="lang-te">
+              స్కూల్‌కి వెళ్లాల్సిన వయస్సు ఉన్న పిల్లలు దుకాణం, హోటల్, కూలి, గనుల్లో పని,
+              రాత్రిళ్లు పని చేస్తూ కనిపిస్తే జాగ్రత్తగా గమనించండి.
+            </span>
+          </p>
+          <ul class="info-list">
+            <li>
+              <span class="lang-en">Child missing school regularly</span>
+              <span class="lang-te">పాఠశాలకు తరచూ గైర్హాజరు అయ్యే చిన్నారి</span>
+            </li>
+            <li>
+              <span class="lang-en">Working long hours or late at night</span>
+              <span class="lang-te">చాలా గంటలు లేదా రాత్రిళ్లు పని చేయించడం</span>
+            </li>
+            <li>
+              <span class="lang-en">Doing dangerous or heavy work</span>
+              <span class="lang-te">ప్రమాదకరమైన లేదా శారీరకంగా కఠినమైన పని</span>
+            </li>
+          </ul>
+          <div class="info-chip-row">
+            <span class="info-chip">
+              <span class="lang-en">If you see it, report it.</span>
+              <span class="lang-te">గమనిస్తే – ఫిర్యాదు చేయండి.</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="info-card">
+          <div class="info-pill">
+            <span>📜</span>
+            <span class="lang-en">Law & Rights</span>
+            <span class="lang-te">చట్టాలు & హక్కులు</span>
+          </div>
+          <h3 class="info-title">
+            <span class="lang-en">What does the law say?</span>
+            <span class="lang-te">చట్టం ఏమంటుంది?</span>
+          </h3>
+          <p class="info-body">
+            <span class="lang-en">
+              In India, it is illegal to employ children below 14 years in any work that harms
+              their education, health, or safety.
+            </span>
+            <span class="lang-te">
+              14 సంవత్సరాల లోపు పిల్లలను వారి చదువు, ఆరోగ్యం, భద్రతకు హానికరంగా ఉండే పనుల్లో
+              పెట్టడం భారతదేశంలో చట్ట విరుద్ధం.
+            </span>
+          </p>
+          <ul class="info-list">
+            <li>
+              <span class="lang-en">Right to free and compulsory education (6–14 years)</span>
+              <span class="lang-te">6–14 ఏళ్ల పిల్లలకు ఉచిత, తప్పనిసరి విద్య హక్కు</span>
+            </li>
+            <li>
+              <span class="lang-en">Child Labour (Prohibition & Regulation) Act</span>
+              <span class="lang-te">బాల కార్మిక నిషేధం & నియంత్రణ చట్టం</span>
+            </li>
+            <li>
+              <span class="lang-en">Offenders can be punished and fined</span>
+              <span class="lang-te">పిల్లలను పనికి పెట్టినవారికి శిక్ష, జరిమానా</span>
+            </li>
+          </ul>
+          <div class="info-chip-row">
+            <span class="info-chip">
+              <span class="lang-en">Dial 1098 – Childline</span>
+              <span class="lang-te">1098 – చైల్డ్‌లైన్‌కు కాల్ చేయండి</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="info-card">
+          <div class="info-pill">
+            <span>🤝</span>
+            <span class="lang-en">Your role</span>
+            <span class="lang-te">మీ పాత్ర</span>
+          </div>
+          <h3 class="info-title">
+            <span class="lang-en">How you can help children in Vempalli</span>
+            <span class="lang-te">వెంపల్లి పిల్లల కోసం మీరు చేయగలిగేదేమిటి?</span>
+          </h3>
+          <p class="info-body">
+            <span class="lang-en">
+              You don’t need power to protect a child – you just need to speak up.
+              Use this website to safely inform the Mandal Education Officer.
+            </span>
+            <span class="lang-te">
+              ఒక చిన్నారిని రక్షించడానికి అధికారం అవసరం లేదు – మనసు, ధైర్యం చాలును.
+              ఈ వెబ్‌సైట్ ద్వారా సురక్షితంగా MEOకి సమాచారం ఇవ్వండి.
+            </span>
+          </p>
+          <ul class="info-list">
+            <li>
+              <span class="lang-en">Share what you see – location, time, details</span>
+              <span class="lang-te">మీరు చూసిన చోటు, సమయం, వివరాలు రాయండి</span>
+            </li>
+            <li>
+              <span class="lang-en">You may keep your name optional</span>
+              <span class="lang-te">మీ పేరు ఇవ్వడం ఐచ్చికం (ఐచ్ఛికం)</span>
+            </li>
+            <li>
+              <span class="lang-en">MEO office can take action with your information</span>
+              <span class="lang-te">మీ సమాచారంతో MEO కార్యాలయం చర్యలు తీసుకుంటుంది</span>
+            </li>
+          </ul>
+          <div class="info-chip-row">
+            <span class="info-chip">
+              <span class="lang-en">Start a report in under 2 minutes.</span>
+              <span class="lang-te">2 నిమిషాల్లో ఫిర్యాదు పంపండి.</span>
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="section" id="gallery">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            <span class="lang-en">Real Childhood, Not Child Labour</span>
+            <span class="lang-te">చిన్నారి జీవితం… పనికాదు, పాఠమే</span>
+          </h2>
+          <p class="section-subtitle">
+            <span class="lang-en">
+              A glimpse of what every child in Vempalli Mandal deserves – safety, smiles,
+              and a seat in the classroom.
+            </span>
+            <span class="lang-te">
+              వెంపల్లి మండలంలోని ప్రతి చిన్నారికి లభించాల్సిందిది – భద్రత, సంతోషం,
+              పాఠశాలలో ఒక స్థానం.
+            </span>
+          </p>
+        </div>
+        <div class="section-badge">
+          <span>📸</span>
+          <span class="lang-en">Powerful visuals for awareness sessions</span>
+          <span class="lang-te">అవగాహన కోసం బలమైన చిత్రాలు</span>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-main">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1400&q=80" alt="Child studying" />
+          <div class="gallery-main-overlay"></div>
+          <div class="gallery-badges">
+            <span class="gallery-badge">
+              <span class="lang-en">From labour to learning</span>
+              <span class="lang-te">పని నుంచి పాఠశాలకు</span>
+            </span>
+            <span class="gallery-badge">
+              <span class="lang-en">Hope for every child</span>
+              <span class="lang-te">ప్రతి చిన్నారికి ఆశ</span>
+            </span>
+          </div>
+          <div class="gallery-main-text">
+            <strong class="block-text lang-en">Books in their hands, not burdens on their backs.</strong>
+            <strong class="block-text lang-te">బస్తా చేతిలో ఉండాలి, బరువు భుజంపై కాదు.</strong>
+            <p>
+              <span class="lang-en">
+                When children are pulled out of labour and sent back to school,
+                an entire community moves forward.
+              </span>
+              <span class="lang-te">
+                బాల కార్మికం నుంచి పిల్లలను బయటకు తీసి, పాఠశాలకు పంపితే –
+                మొత్తం గ్రామమే ముందుకు సాగుతుంది.
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-side">
+          <div class="gallery-tile">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=900&q=80" alt="Group of children" />
+            <div class="gallery-tile-tag">
+              <span class="lang-en">Every child deserves a team, not a boss.</span>
+              <span class="lang-te">చిన్నారి కి బాస్ కాదు – స్నేహితులు కావాలి.</span>
+            </div>
+          </div>
+          <div class="gallery-tile">
+            <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80" alt="Child at construction" />
+            <div class="gallery-tile-tag">
+              <span class="lang-en">If you see this in Vempalli, report it.</span>
+              <span class="lang-te">వెంపల్లిలో ఇలా ఉంటే – వెంటనే తెలపండి.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats-strip">
+      <div>
+        <h3 class="stats-left-title">
+          <span class="lang-en">Together, we can change the numbers.</span>
+          <span class="lang-te">మనందరం కలిస్తే… ఈ సంఖ్యలు మారుతాయి.</span>
+        </h3>
+        <p class="stats-left-body">
+          <span class="lang-en">
+            Even one report from you can stop a child from being forced into labour
+            and bring them back to school.
+          </span>
+          <span class="lang-te">
+            మీ ఒక్క ఫిర్యాదు కూడా ఒక చిన్నారిని పనిలో నుంచి బయటకు తీసి, పాఠశాలలోకి తీసుకురావచ్చు.
+          </span>
+        </p>
+      </div>
+
+      <div class="stats-right">
+        <div class="stat-item">
+          <div class="stat-number" data-counter data-target="10">0</div>
+          <div class="stat-label">
+            <span class="lang-en">min to visit, see & report</span>
+            <span class="lang-te">చూసి, వివరాలు రాసి, పంపడానికి నిమిషాలే</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-dot"></span>
+            <span class="lang-en">Simple, mobile-friendly form</span>
+            <span class="lang-te">సింపుల్, మొబైల్‌లో కూడా సులభం</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-counter data-target="1">0</div>
+          <div class="stat-label">
+            <span class="lang-en">child can be protected by your report</span>
+            <span class="lang-te">మీ ఫిర్యాదుతో కనీసం ఒకరి జీవితం మారుతుంది</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-dot"></span>
+            <span class="lang-en">Be the reason a child returns to school</span>
+            <span class="lang-te">ఒక చిన్నారి పాఠశాలకు తిరిగి రావడానికి మీరు కారణం అవ్వండి</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORT SECTION -->
+    <section class="report-section" id="report">
+      <article class="report-info-card">
+        <div class="report-header">
+          <div class="report-header-icon">⚠️</div>
+          <h2 class="report-title">
+            <span class="lang-en">Report Child Labour to the Mandal Education Officer</span>
+            <span class="lang-te">మండల విద్యా అధికారికి బాల కార్మికంపై ఫిర్యాదు చేయండి</span>
+          </h2>
+        </div>
+        <p class="report-body">
+          <span class="lang-en">
+            Use this form if you see any child in Vempalli Mandal being forced to work
+            instead of going to school. Your report will be sent by email to the MEO.
+          </span>
+          <span class="lang-te">
+            వెంపల్లి మండలంలో ఏ చిన్నారిని అయినా చదువు వదిలి పని చేయిస్తున్నారని గమనిస్తే,
+            ఈ ఫారమ్ ద్వారా ఫిర్యాదు చేయండి. మీ వివరాలు MEOకి ఈమెయిల్ రూపంలో వెళ్తాయి.
+          </span>
+        </p>
+        <ul class="report-points">
+          <li>
+            <span class="lang-en">Share the exact location (village, street, landmark).</span>
+            <span class="lang-te">గ్రామం, వీధి, దగ్గరలో ఉన్న గుర్తుపెట్టుకోదగిన స్థలం వంటివి రాయండి.</span>
+          </li>
+          <li>
+            <span class="lang-en">Describe what the child is made to do.</span>
+            <span class="lang-te">చిన్నారిని ఏ పని చేయిస్తున్నారో వివరంగా రాయండి.</span>
+          </li>
+          <li>
+            <span class="lang-en">Your name & contact are optional, but helpful.</span>
+            <span class="lang-te">మీ పేరు, ఫోన్ నంబరు ఇవ్వడం ఐచ్చికం – కానీ ఉపయోగకరం.</span>
+          </li>
+        </ul>
+
+        <div class="report-note">
+          <span class="lang-en">
+            Your safety matters. Do <b>not</b> argue with anyone at the spot. Just observe,
+            note the details, and send the report. Authorities will handle the rest.
+          </span>
+          <span class="lang-te">
+            మీ భద్రత ముఖ్యం. సంఘటనా స్థలంలో ఎవరితోనూ వాదించకండి.
+            గమనించిన వివరాలు మాత్రమే రాసి ఫిర్యాదు పంపండి. తరువాత చర్యలను అధికారులు తీసుకుంటారు.
+          </span>
+        </div>
+
+        <div class="meo-badge">
+          <div class="meo-badge-dot"></div>
+          <span class="lang-en">Email goes directly to Mandal Education Officer (MEO)</span>
+          <span class="lang-te">ఈమెయిల్ నేరుగా మండల విద్యా అధికారి (MEO)కి వెళ్తుంది</span>
+        </div>
+      </article>
+
+      <article class="form-card">
+        <h3 class="form-title">
+          <span class="lang-en">Child Labour Report Form</span>
+          <span class="lang-te">బాల కార్మికంపై ఫిర్యాదు ఫారమ్</span>
+        </h3>
+        <p class="form-sub">
+          <span class="lang-en">Fields marked with * are required.</span>
+          <span class="lang-te">* తో ఉన్న వివరాలు తప్పనిసరి.</span>
+        </p>
+
+        <form id="reportForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reporterName">
+                <span class="lang-en">Your Name (optional)</span>
+                <span class="lang-te">మీ పేరు (ఐచ్చికం)</span>
+              </label>
+              <input type="text" id="reporterName" name="reporterName" placeholder="Ravi / Suma" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact">
+                <span class="lang-en">Phone / Email (optional)</span>
+                <span class="lang-te">మొబైల్ / ఈమెయిల్ (ఐచ్చికం)</span>
+              </label>
+              <input type="text" id="contact" name="contact" placeholder="9876XXXXXX / you@example.com" />
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="location">
+                <span class="lang-en">Location of Child Labour *</span>
+                <span class="lang-te">చిన్నారి పని చేస్తున్న చోటు *</span>
+              </label>
+              <input type="text" id="location" name="location" required placeholder="Village, area, shop / work place name" />
+            </div>
+
+            <div class="form-group">
+              <label for="village">
+                <span class="lang-en">Village / Area *</span>
+                <span class="lang-te">గ్రామం / ప్రాంతం *</span>
+              </label>
+              <input type="text" id="village" name="village" required placeholder="Eg: Vempalli, nearby colony name" />
+            </div>
+
+            <div class="form-group">
+              <label for="approxAge">
+                <span class="lang-en">Approximate Age of Child</span>
+                <span class="lang-te">చిన్నారి అంచనా వయస్సు</span>
+              </label>
+              <select id="approxAge" name="approxAge">
+                <option value="">
+                  <span class="lang-en">Select</span>
+                  <span class="lang-te">ఎంచుకోండి</span>
+                </option>
+                <option value="under-10">&lt; 10</option>
+                <option value="10-14">10–14</option>
+                <option value="15-18">15–18</option>
+                <option value="unknown">
+                  <span class="lang-en">Not sure</span>
+                  <span class="lang-te">తెలియదు</span>
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="details">
+                <span class="lang-en">What is happening? *</span>
+                <span class="lang-te">ఎమి జరుగుతోంది? *</span>
+              </label>
+              <textarea id="details" name="details" required
+                placeholder="Describe what work the child is doing, timings, who is making them work, etc."></textarea>
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="time">
+                <span class="lang-en">When did you see this?</span>
+                <span class="lang-te">మీరు ఎప్పుడు గమనించారు?</span>
+              </label>
+              <input type="text" id="time" name="time" placeholder="Eg: Today evening around 6 PM, daily mornings, etc." />
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <div>
+              <div class="form-required">
+                <span class="lang-en">⚠️ Do not put yourself in danger while collecting information.</span>
+                <span class="lang-te">⚠️ సమాచారం సేకరిస్తూ మీ భద్రతకు ప్రమాదం కలిగించొద్దు.</span>
+              </div>
+              <div>
+                <span class="lang-en">Your report will open your email app with all details filled in.</span>
+                <span class="lang-te">ఫారమ్ పూర్తిచేసి పంపితే, మీ ఈమెయిల్ యాప్‌లో అన్ని వివరాలు సిద్ధంగా కనిపిస్తాయి.</span>
+              </div>
+            </div>
+            <div class="form-btn-row">
+              <button type="submit" class="btn-danger">
+                <span>✉️</span>
+                <span class="lang-en">Send Report to MEO</span>
+                <span class="lang-te">MEOకి ఫిర్యాదు పంపండి</span>
+              </button>
+              <button type="reset" class="btn-outline">
+                <span>↻</span>
+                <span class="lang-en">Clear form</span>
+                <span class="lang-te">ఫారమ్ క్లియర్ చేయండి</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </article>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        <span class="lang-en">
+          © Vempalli Child Hope – Created to support child labour awareness and safe reporting.
+        </span>
+        <span class="lang-te">
+          © వెంపల్లి చైల్డ్ హోప్ – బాల కార్మిక నిషేధ అవగాహన & సురక్షిత ఫిర్యాదుల కోసం రూపొందించబడింది.
+        </span>
+      </div>
+      <div class="footer-links">
+        <span>
+          <span class="lang-en">Emergency Helpline:</span>
+          <span class="lang-te">అత్యవసర సహాయం:</span> 1098
+        </span>
+        <span>
+          <span class="lang-en">Remember:</span>
+          <span class="lang-te">గుర్తుంచుకోండి:</span>
+          <span class="highlight lang-en">Let them learn, not labour.</span>
+          <span class="highlight lang-te">శ్రమ కాదు… విద్యే వారి హక్కు.</span>
+        </span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // LANGUAGE TOGGLE
+    const langButtons = document.querySelectorAll("[data-lang-btn]");
+    langButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const lang = btn.getAttribute("data-lang-btn");
+        document.documentElement.setAttribute("data-lang", lang);
+
+        langButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+
+    // SMOOTH SCROLL HELPERS
+    function scrollToReport() {
+      document.getElementById("report").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollToAbout() {
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // COUNTER ANIMATION
+    const counters = document.querySelectorAll("[data-counter]");
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute("data-target"), 10);
+          let current = 0;
+          const step = Math.ceil(target / 60); // ~1 second animation
+
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(interval);
+            }
+            el.textContent = current;
+          }, 16);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // FORM SUBMIT -> CREATE MAILTO LINK
+    const reportForm = document.getElementById("reportForm");
+
+    reportForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const lang = document.documentElement.getAttribute("data-lang") || "en";
+
+      const reporterName = document.getElementById("reporterName").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const village = document.getElementById("village").value.trim();
+      const approxAge = document.getElementById("approxAge").value;
+      const details = document.getElementById("details").value.trim();
+      const time = document.getElementById("time").value.trim();
+
+      if (!location || !village || !details) {
+        alert(lang === "en"
+          ? "Please fill all required fields (Location, Village/Area, What is happening?)."
+          : "చిన్నారి పని చేస్తున్న చోటు, గ్రామం / ప్రాంతం, ఏమి జరుగుతోందో తప్పనిసరిగా నమోదు చేయండి.");
+        return;
+      }
+
+      const subjectEn = "URGENT: Child Labour Report - Vempalli Mandal";
+      const subjectTe = "అత్యవసరం: వెంపల్లి మండలంలో బాల కార్మికంపై ఫిర్యాదు";
+
+      const subject = lang === "en" ? subjectEn : subjectTe;
+
+      let body = "";
+      body += (lang === "en" ? "Child Labour Report - Vempalli Mandal" : "వెంపల్లి మండలం - బాల కార్మిక ఫిర్యాదు") + "%0D%0A";
+      body += "---------------------------------%0D%0A%0D%0A";
+
+      if (lang === "en") {
+        body += "Location of child labour: " + location + "%0D%0A";
+        body += "Village / Area: " + village + "%0D%0A";
+        body += "Approximate age of child: " + (approxAge || "Not specified") + "%0D%0A";
+        body += "When did you see this: " + (time || "Not specified") + "%0D%0A%0D%0A";
+        body += "Details of what is happening:%0D%0A" + details + "%0D%0A%0D%0A";
+        body += "Reporter Name: " + (reporterName || "Not given") + "%0D%0A";
+        body += "Contact (phone/email): " + (contact || "Not given") + "%0D%0A";
+      } else {
+        body += "చిన్నారి పని చేస్తున్న చోటు: " + location + "%0D%0A";
+        body += "గ్రామం / ప్రాంతం: " + village + "%0D%0A";
+        body += "చిన్నారి అంచనా వయస్సు: " + (approxAge || "తెలియదు") + "%0D%0A";
+        body += "మీరు ఎప్పుడు గమనించారు: " + (time || "తెలియదు") + "%0D%0A%0D%0A";
+        body += "ఎమి జరుగుతోంది – వివరాలు:%0D%0A" + details + "%0D%0A%0D%0A";
+        body += "ఫిర్యాదు చేస్తున్న వ్యక్తి పేరు: " + (reporterName || "ఇవ్వలేదు") + "%0D%0A";
+        body += "సంప్రదింపు (ఫోన్/ఈమెయిల్): " + (contact || "ఇవ్వలేదు") + "%0D%0A";
+      }
+
+      // 🔴 IMPORTANT: PUT MEO EMAIL ID HERE
+      const meoEmail = "MEO_EMAIL_HERE@example.com";
+
+      const mailtoLink = "mailto:" + encodeURIComponent(meoEmail)
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + body;
+
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>
